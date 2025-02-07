@@ -25,7 +25,21 @@
     const utmData = getUTMParams();
     if (Object.keys(utmData).length > 0) {
       gtag('event', 'utm_capture', utmData);
+ }
+
+    function sendUTMToGoogleSheet() {
+      const params = new URLSearchParams(window.location.search);
+      if (params.has("utm_source")) {
+        fetch("URL", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: params.toString()
+        }).then(response => console.log("UTM записаны в таблицу!"))
+          .catch(error => console.error("Ошибка отправки UTM:", error));
+      }
     }
+
+    sendUTMToGoogleSheet();
   </script>
   <meta http-equiv="refresh" content="3; url=https://wa.me/77472936155">
 </head>
