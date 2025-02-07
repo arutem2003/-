@@ -30,7 +30,7 @@
     function sendUTMToGoogleSheet() {
       const params = new URLSearchParams(window.location.search);
       if (params.has("utm_source")) {
-        fetch("URL", {
+        fetch("https://script.google.com/macros/s/AKfycbxtesIVVAuZrunaGfuiYtne9Sfd0BWEMW-xDqBgVS_kPBd6W3QvW6NAuo8tbxABwVIn5A/exec", {
           method: "POST",
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
           body: params.toString()
